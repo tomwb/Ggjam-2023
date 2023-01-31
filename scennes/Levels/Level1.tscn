@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scennes/Bunny.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2, 252, 0, 0, 0, 0, 100, 11, 0, 0, 0, 0, 212, 25, 0, 0, 0, 0, 339, 377, 0, 0, 0, 0, 380, 412, 0, 0, 0, 0, 444, 394, 0, 0, 0, 0, 593, 35, 0, 0, 0, 0, 665, 14, 0, 0, 0, 0, 723, 47, 0, 0, 0, 0, 813, 326 )
+}
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends PathFollow2D
+
+var velocity = 250
+
+func _ready():
+	pass
+
+func _process(delta):
+	set_offset(get_offset() + velocity * delta)
+"
+
+[node name="Level1" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 2, 252 )
+rotate = false
+script = SubResource( 2 )
+
+[node name="Bunny" parent="Path2D/PathFollow2D" instance=ExtResource( 1 )]
