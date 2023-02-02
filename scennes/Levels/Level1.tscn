@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scennes/Bunny.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Level1.gd" type="Script" id=2]
+[ext_resource path="res://scennes/Tower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/background.png" type="Texture" id=3]
 
 [sub_resource type="Curve2D" id=1]
@@ -9,11 +9,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -141, 385, 0, 0, 0, 0, 106, 382, 0, 0, 0, 0, 145, 225, 0, 0, 0, 0, 171, 107, 0, 0, 0, 0, 269, 71, 0, 0, 0, 0, 361, 101, 0, 0, 0, 0, 416, 285, 0, 0, 0, 0, 431, 433, 0, 0, 0, 0, 475, 504, 0, 0, 0, 0, 803, 506 )
 }
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 62, 41.5 )
-
 [node name="Level1" type="Node2D"]
-script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 411, 301 )
@@ -22,15 +18,16 @@ texture = ExtResource( 3 )
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="Bunny2" parent="Path2D" instance=ExtResource( 1 )]
-position = Vector2( -100, 390 )
-
 [node name="Bunny3" parent="Path2D" instance=ExtResource( 1 )]
-position = Vector2( -24, 390 )
+position = Vector2( -141, 385 )
+rotation = -0.0121413
+velocity = 200
 
-[node name="Barricade" type="StaticBody2D" parent="." groups=["BARRICADE"]]
-position = Vector2( 397, 401 )
+[node name="Bunny4" parent="Path2D" instance=ExtResource( 1 )]
+position = Vector2( -46.259, 383.849 )
+rotation = -0.0121413
+offset = 94.88
+velocity = 200
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barricade"]
-position = Vector2( 52, 31.5 )
-shape = SubResource( 2 )
+[node name="Tower" parent="." instance=ExtResource( 2 )]
+position = Vector2( 458, 408 )
