@@ -3,11 +3,13 @@
 [ext_resource path="res://scripts/HpBar.gd" type="Script" id=1]
 
 [node name="HpBar" type="Node2D"]
+z_index = 100
 script = ExtResource( 1 )
 border_color = Color( 0, 0, 0, 1 )
 background_color = Color( 0.0196078, 1, 0.427451, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -35.0
+margin_left = -70.0
 margin_top = -10.0
-margin_right = 35.0
+margin_right = 70.0
+margin_bottom = 10.0

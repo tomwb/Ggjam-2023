@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://sprites/level_base_clone_o_matic.png" type="Texture" id=1]
+[ext_resource path="res://sprites/bg_level_base.png" type="Texture" id=2]
+[ext_resource path="res://scripts/LevelBase.gd" type="Script" id=3]
+[ext_resource path="res://sprites/level_base_food.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 540, 725 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 540, 0, 540, 725 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1080, 0, 540, 725 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1620, 0, 540, 725 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 2160, 0, 540, 725 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 235, 752, 0, 0, 0, 0, 169, 803, 0, 0, 0, 0, 139, 878, 0, 0, 0, 0, 149, 946, 0, 0, 0, 0, 260, 961, 0, 0, 0, 0, 411, 924, 0, 0, 0, 0, 577, 752, 0, 0, 0, 0, 711, 621, 0, 0, 0, 0, 809, 583, 0, 0, 0, 0, 880, 583, 0, 0, 0, 0, 910, 626, 0, 0, 0, 0, 865, 714, 0, 0, 0, 0, 796, 800, 0, 0, 0, 0, 733, 911, 0, 0, 0, 0, 739, 971, 0, 0, 0, 0, 774, 989, 0, 0, 0, 0, 824, 999, 0, 0, 0, 0, 875, 969, 0, 0, 0, 0, 1124, 684, 0, 0, 0, 0, 1200, 629, 0, 0, 0, 0, 1313, 651, 0, 0, 0, 0, 1356, 707, 0, 0, 0, 0, 1338, 813, 0, 0, 0, 0, 1295, 951 )
+}
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="SpriteBg" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1701, 598 )
+texture = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonCloneCenter" type="Button" parent="CanvasLayer"]
+margin_left = 66.0
+margin_top = 247.0
+margin_right = 461.0
+margin_bottom = 394.0
+
+[node name="ButtonStartWave" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -145.0
+margin_top = 17.0
+margin_right = -17.0
+margin_bottom = 105.0
+
+[node name="CloneOMatic" type="AnimatedSprite" parent="."]
+position = Vector2( 252, 423 )
+frames = SubResource( 8 )
+animation = "idle"
+playing = true
+
+[node name="CloneCenterPosition2D" type="Position2D" parent="."]
+position = Vector2( 252, 751 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[connection signal="button_down" from="CanvasLayer/ButtonCloneCenter" to="." method="addBunny"]
+[connection signal="button_down" from="CanvasLayer/ButtonStartWave" to="." method="startWave"]
