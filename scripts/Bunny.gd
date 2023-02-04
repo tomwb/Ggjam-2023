@@ -54,6 +54,7 @@ func setDamage(damage):
 	life -= damage
 	$HpBar.calcPercentage(max_life, life)
 	if life <= 0:
+		GameController.removeBunny(positionIndex)
 		queue_free()
 
 func _on_Area2D_area_entered(area):

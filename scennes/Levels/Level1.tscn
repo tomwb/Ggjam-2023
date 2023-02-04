@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/level_spawner.png" type="Texture" id=1]
 [ext_resource path="res://scennes/TowerTomato.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scennes/Hud.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/LevelStart.gd" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=1]
@@ -73,6 +74,8 @@ tracks/1/keys = {
 [node name="Level1" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Hud" parent="." instance=ExtResource( 3 )]
+
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 545, 120 )
 curve = SubResource( 1 )
@@ -84,7 +87,8 @@ position = Vector2( 1741, 889 )
 position = Vector2( 141, 502 )
 
 [node name="LevelSpawner" type="Sprite" parent="."]
-position = Vector2( 218, 965 )
+position = Vector2( 184, 965 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 hframes = 23
 

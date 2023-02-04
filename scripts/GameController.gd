@@ -4,7 +4,13 @@ enum  bunniesTypes {
 	Basic, Fast, Strong, StrongFast
 }
 
+signal updateHud
+
 var bunnies = []
+var wave = 0
+var collectibleCarrot = 5
+var collectibleStrong = 2
+var collectibleFast = 2
 
 func _ready():
 	pass
@@ -24,6 +30,17 @@ func changeBunny(index, type):
 			bunny["type"] = type
 		new_bunnies.append(bunny)
 	bunnies = new_bunnies
+	
+func removeBunny(index):
+	var new_bunnies = []
+	for bunny in bunnies:
+		if bunny["index"] != index:
+			new_bunnies.append(bunny)
+	bunnies = new_bunnies
+	
+	if bunnies.size() == 0:
+		yield(get_tree().create_timer(1), "timeout")
+		changeToLevel("res://scennes/levels/LevelBase.tscn")
 
 func changeToLevel(level_name):
 	$AnimationPlayer.play("fade_in")
@@ -32,4 +49,25 @@ func changeToLevel(level_name):
 	yield(get_tree().create_timer(0.2), "timeout")
 	$AnimationPlayer.play("fade_out")
 
+func startLevel():
+	changeToLevel("res://scennes/levels/Level1.tscn")
+	wave += 1
+	emit_signal("updateHud")
+
+func addCollectible(type):
+	if type == bunniesTypes.Basic:
+		collectibleCarrot += 1
+	if type == bunniesTypes.Strong:
+		collectibleStrong += 1
+	if type == bunniesTypes.Fast:
+		collectibleFast += 1
+	emit_signal("updateHud")
 	
+func removeCollectible(type):
+	if type == bunniesTypes.Basic:
+		collectibleCarrot -= 1
+	if type == bunniesTypes.Strong:
+		collectibleStrong -= 1
+	if type == bunniesTypes.Fast:
+		collectibleFast -= 1
+	emit_signal("updateHud")
