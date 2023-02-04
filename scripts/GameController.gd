@@ -8,9 +8,9 @@ signal updateHud
 
 var bunnies = []
 var wave = 0
-var collectibleCarrot = 5
-var collectibleStrong = 2
-var collectibleFast = 2
+var collectibleCarrot = 3
+var collectibleStrong = 0
+var collectibleFast = 0
 
 func _ready():
 	pass
@@ -37,7 +37,6 @@ func removeBunny(index):
 		if bunny["index"] != index:
 			new_bunnies.append(bunny)
 	bunnies = new_bunnies
-	
 	if bunnies.size() == 0:
 		yield(get_tree().create_timer(1), "timeout")
 		changeToLevel("res://scennes/levels/LevelBase.tscn")

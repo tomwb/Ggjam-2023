@@ -90,7 +90,6 @@ func _on_CollectibleStrongButton_button_down():
 		collectible_bunny_evolve.type = GameController.bunniesTypes.Strong
 		get_parent().add_child(collectible_bunny_evolve)
 
-
 func _on_CollectibleFastButton_button_down():
 	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0 && GameController.collectibleFast > 0:
 		GameController.removeCollectible(GameController.bunniesTypes.Fast)

@@ -1,28 +1,39 @@
 extends Area2D
 
+const PRE_TEXTURE_STRONG =  preload("res://sprites/collectibles/pickup-forca.png")
+const PRE_TEXTURE_FAST =  preload("res://sprites/collectibles/pickup-velocidade.png")
+
 var bunny
 var type = GameController.bunniesTypes.Strong
 
+
 func _ready():
-	pass
+	if type == GameController.bunniesTypes.Strong:
+		$Sprite.set_texture(PRE_TEXTURE_STRONG)
+	if type == GameController.bunniesTypes.Fast:
+		$Sprite.set_texture(PRE_TEXTURE_FAST)
 
 func _process(delta):
 	global_position = get_viewport().get_mouse_position()
 
 func _on_CollectibleBunnyEvolve_area_entered(area):
 	if area.is_in_group("BUNNY"):
-		if bunny :
-			bunny.scale = Vector2(1,1)
-		bunny = area.get_parent()
-		area.get_parent().scale = Vector2(1.2,1.2)
+		if area.get_parent().type != type && area.get_parent().type != GameController.bunniesTypes.StrongFast:
+			if bunny :
+				bunny.scale = Vector2(1,1)
+			bunny = area.get_parent()
+			area.get_parent().scale = Vector2(1.2,1.2)
 
 func _on_CollectibleBunnyEvolve_area_exited(area):
 	if area.is_in_group("BUNNY"):
-		area.get_parent().scale = Vector2(1,1)
-		if bunny == area.get_parent():
-			bunny = null
+		if area.get_parent().type != type && area.get_parent().type != GameController.bunniesTypes.StrongFast:
+			area.get_parent().scale = Vector2(1,1)
+			if bunny == area.get_parent():
+				bunny = null
 	
 func _on_CollectibleBunnyEvolve_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed) && bunny && bunny.has_method("onChangeType"):
-		bunny.onChangeType(type)
-		queue_free()
+		if bunny.type != type && bunny.type != GameController.bunniesTypes.StrongFast:
+			bunny.onChangeType(type)
+			bunny.velocity = 300
+			queue_free()

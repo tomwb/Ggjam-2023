@@ -71,7 +71,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 822.176
+radius = 652.601
 
 [node name="TowerTomato" type="Area2D" groups=["ENEMY"]]
 z_index = 9

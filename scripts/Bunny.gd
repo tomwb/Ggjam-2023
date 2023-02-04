@@ -1,7 +1,6 @@
 extends PathFollow2D
 
 export(int) var velocity = 150
-export(int) var damage = 1
 export(int) var max_life = 2
 var life
 var walk = false
@@ -18,12 +17,16 @@ func onCreate(new_type, index) :
 	
 	var new_color = Color(0.83,0.83,0.47)
 	if type == GameController.bunniesTypes.Strong :
+		max_life = 4
 		new_color = Color(0.42, 0.65, 0.94)
 		$AnimationPlayer.play("bunny_strong")
 	if type == GameController.bunniesTypes.Fast :
+		velocity = 300
 		new_color = Color(0.98, 0.29, 0.29)
 		$AnimationPlayer.play("bunny_fast")
 	if type == GameController.bunniesTypes.StrongFast :
+		max_life = 4
+		velocity = 350
 		new_color = Color(0.72, 0.29, 0.98)
 		$AnimationPlayer.play("bunny_strong_fast")
 	
@@ -31,6 +34,8 @@ func onCreate(new_type, index) :
 	life = max_life
 
 func onChangeType(new_type):
+	if (type == GameController.bunniesTypes.Strong && new_type == GameController.bunniesTypes.Fast) || (type == GameController.bunniesTypes.Fast && new_type == GameController.bunniesTypes.Strong):
+		new_type = GameController.bunniesTypes.StrongFast
 	GameController.changeBunny(positionIndex, new_type)
 	onCreate(new_type, positionIndex)
 
@@ -60,6 +65,7 @@ func setDamage(damage):
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("ENEMY"):
 		if area.has_method("setDamage"):
-			area.setDamage(damage)
+			area.setDamage(life)
+		GameController.removeBunny(positionIndex)
 		explode()
 
