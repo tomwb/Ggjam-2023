@@ -15,12 +15,14 @@ func _ready():
 	pass
 
 func addBunny():
-	if canAddNew == true && max_bunnies > bunnies.size(): 
+	if canAddNew == true && max_bunnies > bunnies.size() && GameController.collectibleCarrot > 0: 
+		GameController.removeCollectible(GameController.bunniesTypes.Basic)
 		canAddNew = false
 		if bunnies.size() > 0:
 			walkBunnies = true
 			yield(get_tree().create_timer(0.5), "timeout")
 			walkBunnies = false
+		
 		var bunny_config = GameController.addBunny()
 		var bunny = pre_bunny.instance()
 		bunny.global_position = $CloneCenterPosition2D.global_position
@@ -79,10 +81,19 @@ func _on_MolaExitArea_area_entered(area):
 		if startGame == false :
 			startGame = true
 			yield(get_tree().create_timer(1), "timeout")
-			GameController.changeToLevel("res://scennes/levels/Level1.tscn")
+			GameController.startLevel()
 
-
-func _on_CollectibleButton_button_down():
-	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0:
+func _on_CollectibleStrongButton_button_down():
+	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0 && GameController.collectibleStrong > 0:
+		GameController.removeCollectible(GameController.bunniesTypes.Strong)
 		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
+		collectible_bunny_evolve.type = GameController.bunniesTypes.Strong
+		get_parent().add_child(collectible_bunny_evolve)
+
+
+func _on_CollectibleFastButton_button_down():
+	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0 && GameController.collectibleFast > 0:
+		GameController.removeCollectible(GameController.bunniesTypes.Fast)
+		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
+		collectible_bunny_evolve.type = GameController.bunniesTypes.Fast
 		get_parent().add_child(collectible_bunny_evolve)

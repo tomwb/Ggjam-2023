@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 65.0
-height = 152.0
+height = 76.0
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -135,7 +135,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -142 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Body:position")
@@ -147,7 +147,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -142 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Head:position")
@@ -159,7 +159,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -142 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -211,7 +211,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -112 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Body:position")
@@ -223,7 +223,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -112 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Head:position")
@@ -235,7 +235,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -112 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -363,7 +363,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -119 ) ]
+"values": [ Vector2( 0, -140 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Body:position")
@@ -375,7 +375,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -170 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Head:position")
@@ -387,7 +387,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -149 ) ]
+"values": [ Vector2( 0, -170 ) ]
 }
 
 [node name="Bunny" type="PathFollow2D"]
@@ -431,7 +431,7 @@ playing = true
 position = Vector2( 1, -149 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 33 )
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

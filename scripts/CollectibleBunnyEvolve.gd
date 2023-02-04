@@ -16,15 +16,12 @@ func _on_CollectibleBunnyEvolve_area_entered(area):
 		bunny = area.get_parent()
 		area.get_parent().scale = Vector2(1.2,1.2)
 
-
 func _on_CollectibleBunnyEvolve_area_exited(area):
 	if area.is_in_group("BUNNY"):
 		area.get_parent().scale = Vector2(1,1)
 		if bunny == area.get_parent():
 			bunny = null
-		
-
-
+	
 func _on_CollectibleBunnyEvolve_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed) && bunny && bunny.has_method("onChangeType"):
 		bunny.onChangeType(type)
