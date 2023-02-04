@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scennes/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scennes/TowerTomato.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/background.png" type="Texture" id=3]
 [ext_resource path="res://scripts/LevelStart.gd" type="Script" id=4]
 
@@ -16,13 +16,11 @@ script = ExtResource( 4 )
 position = Vector2( 411, 301 )
 texture = ExtResource( 3 )
 
-[node name="YSort" type="YSort" parent="."]
-
-[node name="Path2D" type="Path2D" parent="YSort"]
+[node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="Tower" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1210, 758 )
+[node name="TowerTomato" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1013, 682 )
 
 [node name="StartPosition2D" type="Position2D" parent="."]
 position = Vector2( -362, 391 )

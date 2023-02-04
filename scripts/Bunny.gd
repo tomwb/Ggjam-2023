@@ -6,12 +6,24 @@ export(int) var max_life = 2
 var life
 var walk = false
 
+var type = GameController.bunniesTypes.Basic
+var positionIndex = 0
+
 func _ready():
-	$Foot/AnimatedSprite.material.set_shader_param("NEWCOLOR2", Color(randf(), randf(), randf()))
+	pass
+	
+func onCreate(new_type, index) :
+	type = new_type
+	positionIndex = index
+	var new_color = Color.white
+	if type == GameController.bunniesTypes.Fast :
+		new_color = Color.red
+	$Foot/AnimatedSprite.material.set_shader_param("NEWCOLOR1", new_color)
 	life = max_life
 
 func _process(delta):
 	if walk:
+		z_index = 10 + position.y
 		set_offset(get_offset() + velocity * delta)
 		$Foot/AnimatedSprite.animation =  "walk"
 		$Body/AnimatedSprite.animation =  "walk"

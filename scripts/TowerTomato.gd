@@ -19,16 +19,16 @@ func setDamage(damage):
 		queue_free()
 
 
-func _on_BulletTimer_timeout():
+func atack():
 	if bodies.size() > 0:
 		var bullet = pre_bullet.instance()
 		bullet.global_position = $BulletPosition2D.global_position
 		get_parent().add_child(bullet)
 		bullet.setTarget(bodies[0])
 
-
 func _on_SensorArea2D_area_entered(area):
 	if area.is_in_group("BUNNY"):
+		$AnimationPlayer.play("atack")
 		bodies.append(area)
 
 
@@ -37,3 +37,6 @@ func _on_SensorArea2D_area_exited(area):
 		var index = bodies.find(area)
 		if index >= 0:
 			bodies.remove(index)
+		
+		if bodies.size() <= 0 :
+			$AnimationPlayer.play("idle")
