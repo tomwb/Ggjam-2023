@@ -24,6 +24,7 @@ func addBunny():
 		var bunny = pre_bunny.instance()
 		bunny.global_position = $CloneCenterPosition2D.global_position
 		$Path2D.add_child(bunny)
+		bunny.get_node("HpBar").visible = false
 		bunny.onCreate(bunny_config["type"], bunny_config["index"])
 		bunny.velocity = velocity
 		bunnies.append(bunny)
@@ -38,7 +39,7 @@ func _process(delta):
 			bunny.walk = false
 			
 	if mola_bunny :
-		mola_bunny.translate(Vector2(0,-1) * 1000 * delta)
+		mola_bunny.translate(Vector2(0,-1) * 1200 * delta)
 
 func _on_CloneOMatic_mouse_entered():
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

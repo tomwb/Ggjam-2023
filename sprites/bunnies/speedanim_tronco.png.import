@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-0cfaafa94fbfb5267bc500b34e5eeb6d.stex"
+path="res://.import/speedanim_tronco.png-5cab6130578746c8a7d022a42669ac13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background.png"
-dest_files=[ "res://.import/background.png-0cfaafa94fbfb5267bc500b34e5eeb6d.stex" ]
+source_file="res://sprites/bunnies/speedanim_tronco.png"
+dest_files=[ "res://.import/speedanim_tronco.png-5cab6130578746c8a7d022a42669ac13.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -15,9 +15,18 @@ func _ready():
 func onCreate(new_type, index) :
 	type = new_type
 	positionIndex = index
-	var new_color = Color.white
+	
+	var new_color = Color(0.83,0.83,0.47)
+	if type == GameController.bunniesTypes.Strong :
+		new_color = Color(0.42, 0.65, 0.94)
+		$AnimationPlayer.play("bunny_strong")
 	if type == GameController.bunniesTypes.Fast :
-		new_color = Color.red
+		new_color = Color(0.98, 0.29, 0.29)
+		$AnimationPlayer.play("bunny_fast")
+	if type == GameController.bunniesTypes.StrongFast :
+		new_color = Color(0.72, 0.29, 0.98)
+		$AnimationPlayer.play("bunny_strong_fast")
+	
 	$Foot/AnimatedSprite.material.set_shader_param("NEWCOLOR1", new_color)
 	life = max_life
 
@@ -25,13 +34,13 @@ func _process(delta):
 	if walk:
 		z_index = 10 + position.y
 		set_offset(get_offset() + velocity * delta)
-		$Foot/AnimatedSprite.animation =  "walk"
-		$Body/AnimatedSprite.animation =  "walk"
-		$Head/AnimatedSprite.animation =  "walk"
+		$Foot/AnimatedSprite.animation =  "foot_walk"
+		$Body/AnimatedSprite.animation =  "body_walk"
+		$Head/AnimatedSprite.animation =  "head_walk"
 	else :
-		$Foot/AnimatedSprite.animation =  "idle"
-		$Body/AnimatedSprite.animation =  "idle"
-		$Head/AnimatedSprite.animation =  "idle"
+		$Foot/AnimatedSprite.animation =  "foot_idle"
+		$Body/AnimatedSprite.animation =  "body_idle"
+		$Head/AnimatedSprite.animation =  "head_idle"
 	
 func explode():
 	walk = false

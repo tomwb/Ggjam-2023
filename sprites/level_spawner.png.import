@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy_batata.png-e22a0b082d191be61d37ea4c7a88678e.stex"
+path="res://.import/level_spawner.png-5e7628ed0251d7825b83d2ab3486b765.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/enemy_batata.png"
-dest_files=[ "res://.import/enemy_batata.png-e22a0b082d191be61d37ea4c7a88678e.stex" ]
+source_file="res://sprites/level_spawner.png"
+dest_files=[ "res://.import/level_spawner.png-5e7628ed0251d7825b83d2ab3486b765.stex" ]
 
 [params]
 

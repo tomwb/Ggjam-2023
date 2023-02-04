@@ -1,7 +1,7 @@
 extends Node2D
 
 enum  bunniesTypes {
-	Basic, Fast, Strong
+	Basic, Fast, Strong, StrongFast
 }
 
 var bunnies = []
@@ -10,9 +10,13 @@ func _ready():
 	pass
 
 func addBunny():
-	var type =bunniesTypes.Basic
+	var type = bunniesTypes.Basic
 	if bunnies.size() == 1:
+		type = bunniesTypes.Strong
+	if bunnies.size() == 2:
 		type = bunniesTypes.Fast
+	if bunnies.size() == 3:
+		type = bunniesTypes.StrongFast
 	bunnies.append({
 		"type": type,
 		"index": bunnies.size()
