@@ -11,17 +11,19 @@ func _ready():
 
 func addBunny():
 	var type = bunniesTypes.Basic
-	if bunnies.size() == 1:
-		type = bunniesTypes.Strong
-	if bunnies.size() == 2:
-		type = bunniesTypes.Fast
-	if bunnies.size() == 3:
-		type = bunniesTypes.StrongFast
 	bunnies.append({
 		"type": type,
 		"index": bunnies.size()
 	})
 	return bunnies[bunnies.size() - 1]
+	
+func changeBunny(index, type):
+	var new_bunnies = []
+	for bunny in bunnies:
+		if bunny["index"] == index:
+			bunny["type"] = type
+		new_bunnies.append(bunny)
+	bunnies = new_bunnies
 
 func changeToLevel(level_name):
 	$AnimationPlayer.play("fade_in")

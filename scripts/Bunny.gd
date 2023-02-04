@@ -30,6 +30,10 @@ func onCreate(new_type, index) :
 	$Foot/AnimatedSprite.material.set_shader_param("NEWCOLOR1", new_color)
 	life = max_life
 
+func onChangeType(new_type):
+	GameController.changeBunny(positionIndex, new_type)
+	onCreate(new_type, positionIndex)
+
 func _process(delta):
 	if walk:
 		z_index = 10 + position.y

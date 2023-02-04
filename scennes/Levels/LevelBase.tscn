@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://sprites/level_base_clone_o_matic.png" type="Texture" id=1]
 [ext_resource path="res://sprites/bg_level_base.png" type="Texture" id=2]
 [ext_resource path="res://scripts/LevelBase.gd" type="Script" id=3]
 [ext_resource path="res://sprites/level_base_food.png" type="Texture" id=4]
 [ext_resource path="res://sprites/level_base_mola.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="Shader" id=9]
 code = "shader_type canvas_item;
@@ -113,7 +114,7 @@ animations = [ {
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 221, 777, 0, 0, 0, 0, 166, 825, 0, 0, 0, 0, 139, 878, 0, 0, 0, 0, 139.065, 906.545, 0, 0, 0, 0, 149, 946, 0, 0, 0, 0, 193, 967, 0, 0, 0, 0, 260, 961, 0, 0, 0, 0, 329, 954, 0, 0, 0, 0, 411, 924, 0, 0, 0, 0, 577, 752, 0, 0, 0, 0, 711, 621, 0, 0, 0, 0, 809, 583, 0, 0, 0, 0, 880, 583, 0, 0, 0, 0, 910, 626, 0, 0, 0, 0, 865, 714, 0, 0, 0, 0, 796, 800, 0, 0, 0, 0, 733, 911, 0, 0, 0, 0, 739, 971, 0, 0, 0, 0, 774, 989, 0, 0, 0, 0, 824, 999, 0, 0, 0, 0, 875, 969, 0, 0, 0, 0, 1124, 684, 0, 0, 0, 0, 1200, 629, 0, 0, 0, 0, 1313, 651, 0, 0, 0, 0, 1356, 707, 0, 0, 0, 0, 1338, 813, 0, 0, 0, 0, 1295, 951 )
+"points": PoolVector2Array( 0, 0, 0, 0, 221, 777, 0, 0, 0, 0, 166, 825, 0, 0, 0, 0, 139, 878, 0, 0, 0, 0, 139.065, 906.545, 0, 0, 0, 0, 149, 946, 0, 0, 0, 0, 193, 967, 0, 0, 0, 0, 260, 961, 0, 0, 0, 0, 329, 954, 0, 0, 0, 0, 411, 924, 0, 0, 0, 0, 577, 752, 0, 0, 0, 0, 711, 621, 0, 0, 0, 0, 809, 583, 0, 0, 0, 0, 871, 590, 0, 0, 0, 0, 897, 636, 0, 0, 0, 0, 865, 714, 0, 0, 0, 0, 796, 800, 0, 0, 0, 0, 733, 911, 0, 0, 0, 0, 739, 971, 0, 0, 0, 0, 774, 989, 0, 0, 0, 0, 824, 999, 0, 0, 0, 0, 875, 969, 0, 0, 0, 0, 1124, 684, 0, 0, 0, 0, 1200, 629, 0, 0, 0, 0, 1313, 651, 0, 0, 0, 0, 1339, 714, 0, 0, 0, 0, 1338, 813, 0, 0, 0, 0, 1295, 951 )
 }
 
 [sub_resource type="RectangleShape2D" id=20]
@@ -173,6 +174,28 @@ radius = 29.1548
 [node name="LevelBase" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonStartWave" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -145.0
+margin_top = 17.0
+margin_right = -17.0
+margin_bottom = 105.0
+
+[node name="CollectibleButton" type="TextureButton" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -118.0
+margin_top = -28.0
+margin_right = -54.0
+margin_bottom = 36.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+
 [node name="SpriteBg" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
@@ -184,16 +207,6 @@ __meta__ = {
 position = Vector2( 1701, 598 )
 texture = ExtResource( 4 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ButtonStartWave" type="Button" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -145.0
-margin_top = 17.0
-margin_right = -17.0
-margin_bottom = 105.0
-
 [node name="CloneOMatic" type="Area2D" parent="."]
 position = Vector2( 252, 423 )
 
@@ -202,6 +215,7 @@ material = SubResource( 10 )
 position = Vector2( 13, 0 )
 frames = SubResource( 8 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="CloneOMatic"]
@@ -234,6 +248,7 @@ position = Vector2( 1298, 933 )
 shape = SubResource( 19 )
 
 [connection signal="button_down" from="CanvasLayer/ButtonStartWave" to="." method="startWave"]
+[connection signal="button_down" from="CanvasLayer/CollectibleButton" to="." method="_on_CollectibleButton_button_down"]
 [connection signal="input_event" from="CloneOMatic" to="." method="_on_CloneOMatic_input_event"]
 [connection signal="mouse_entered" from="CloneOMatic" to="." method="_on_CloneOMatic_mouse_entered"]
 [connection signal="mouse_exited" from="CloneOMatic" to="." method="_on_CloneOMatic_mouse_exited"]

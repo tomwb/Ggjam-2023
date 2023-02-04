@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/enemies/tomate_bomb.png" type="Texture" id=1]
 [ext_resource path="res://scripts/EnemyBullet.gd" type="Script" id=2]
@@ -69,6 +69,9 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="CircleShape2D" id=14]
+radius = 22.8035
+
 [node name="EnemyBullet" type="Area2D" groups=["BULLET"]]
 z_index = 10
 script = ExtResource( 2 )
@@ -80,7 +83,13 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibilityNotifier2D"]
+shape = SubResource( 14 )
+
 [connection signal="area_entered" from="." to="." method="_on_EnemyBullet_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

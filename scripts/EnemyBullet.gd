@@ -18,3 +18,6 @@ func _on_EnemyBullet_area_entered(area):
 		if area.get_parent().has_method("setDamage"):
 			area.get_parent().setDamage(1)
 		queue_free()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()

@@ -1,6 +1,7 @@
 extends Node2D
 
 const pre_bunny = preload("res://scennes/Bunny.tscn")
+const pre_collectible_bunny_evolve = preload("res://scennes/CollectibleBunnyEvolve.tscn")
 
 var velocity = 300
 export(int) var max_bunnies = 15
@@ -66,7 +67,6 @@ func _on_Mola_area_entered(area):
 		yield(get_tree().create_timer(0.2), "timeout")
 		mola_bunny = area.get_parent()
 
-
 func _on_MolaExitArea_area_entered(area):
 	if area.is_in_group("BUNNY"):
 		$Mola/AnimatedSprite.play("idle")
@@ -80,3 +80,9 @@ func _on_MolaExitArea_area_entered(area):
 			startGame = true
 			yield(get_tree().create_timer(1), "timeout")
 			GameController.changeToLevel("res://scennes/levels/Level1.tscn")
+
+
+func _on_CollectibleButton_button_down():
+	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0:
+		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
+		get_parent().add_child(collectible_bunny_evolve)
