@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sprites/enemies/potato_fire.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enemies/potato.png" type="Texture" id=2]
-[ext_resource path="res://scennes/Enemies/BionicPotato.gd" type="Script" id=3]
+[ext_resource path="res://scripts/BionicPotato.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Attack"
@@ -120,9 +120,6 @@ frame = 5
 position = Vector2( 0, 259 )
 rotation = 1.5708
 shape = SubResource( 5 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
 [node name="SensorArea2D" type="Area2D" parent="."]
 visible = false
