@@ -8,6 +8,8 @@ func _ready():
 	yield($LevelSpawner/AnimationPlayer,"animation_finished")
 	$LevelSpawner/AnimationPlayer.play("open")
 	$LevelSpawner/OpenSound.pitch_scale = 10
+	
+	
 func _process(delta):
 	var first_bunny_position
 	for bunny in bunnies:
@@ -18,7 +20,7 @@ func _process(delta):
 				first_bunny_position =  bunny.global_position
 	if first_bunny_position:
 		$Camera2D.global_position.x = first_bunny_position.x
-		
+
 		
 func spawnBunny():
 	if GameController.bunnies.size() > 0 && bunnies.size() < GameController.bunnies.size():
@@ -39,3 +41,10 @@ func _on_FastFoward_pressed():
 	else:
 		Engine.time_scale = 3.0
 
+
+func _on_FinishGameBase_area_entered(area):
+	if area.is_in_group("BUNNY"):
+		area.queue_free()
+		yield(get_tree().create_timer(0.5), "timeout")
+		Engine.time_scale = 1.0
+		GameController.changeToLevel("res://scennes/levels/LevelCredits.tscn")

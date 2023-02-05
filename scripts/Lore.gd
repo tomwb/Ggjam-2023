@@ -6,6 +6,7 @@ func _ready():
 	yield($AnimationPlayer, "animation_finished")
 	Engine.time_scale = 1
 	yield(get_tree().create_timer(0.5), "timeout")
+	GameController.resetCollectible()
 	GameController.changeToLevel("res://scennes/levels/LevelBase.tscn")
 	
 

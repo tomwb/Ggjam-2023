@@ -8,13 +8,19 @@ signal updateHud
 
 var bunnies = []
 var wave = 0
-var collectibleCarrot = 7
-var collectibleStrong = 2
-var collectibleFast = 2
-var collectibleShooter = 1
+var collectibleCarrot = 0
+var collectibleStrong = 0
+var collectibleFast = 0
+var collectibleShooter = 0
 
 func _ready():
-	pass
+	resetCollectible()
+	
+func resetCollectible() :
+	collectibleCarrot = 3
+	collectibleStrong = 0
+	collectibleFast = 0
+	collectibleShooter = 0
 
 func addBunny():
 	var type = bunniesTypes.Basic

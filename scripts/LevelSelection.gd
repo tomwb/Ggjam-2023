@@ -11,4 +11,4 @@ func _on_QuitButton_pressed():
 	get_tree().quit()
 
 func _on_CreditsButton_pressed():
-	pass
+	GameController.changeToLevel("res://scennes/levels/LevelCredits.tscn")

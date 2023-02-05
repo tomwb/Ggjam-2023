@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/hud/fast_foward_hover.png" type="Texture" id=3]
 [ext_resource path="res://sprites/hud/fast_foward.png" type="Texture" id=4]
 [ext_resource path="res://sounds/Creditos-Lore.ogg" type="AudioStream" id=5]
-[ext_resource path="res://sprites/artwork.png" type="Texture" id=6]
+[ext_resource path="res://sprites/options.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -48,7 +48,7 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 0.101961, 0.101961, 0.101961, 1 )
+modulate = Color( 0.576471, 0.576471, 0.576471, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 6 )
@@ -59,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 293.0
-margin_top = 1091.0
-margin_right = 1679.0
-margin_bottom = 2552.02
+margin_left = -667.0
+margin_top = 551.0
+margin_right = 719.0
+margin_bottom = 2012.02
 custom_fonts/normal_font = SubResource( 1 )
 text = "For ages, rabbits dinasty lived in peace and harmony on the moon
 They grew food and prepared the elixir that gives life to Earth's beings
