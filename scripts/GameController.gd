@@ -1,16 +1,17 @@
 extends Node2D
 
 enum  bunniesTypes {
-	Basic, Fast, Strong, StrongFast
+	Basic, Fast, Strong, Shooter, StrongFast, StrongShooter, FastShooter
 }
 
 signal updateHud
 
 var bunnies = []
 var wave = 0
-var collectibleCarrot = 3
-var collectibleStrong = 0
-var collectibleFast = 0
+var collectibleCarrot = 5
+var collectibleStrong = 2
+var collectibleFast = 2
+var collectibleShooter = 2
 
 func _ready():
 	pass
@@ -60,6 +61,8 @@ func addCollectible(type):
 		collectibleStrong += 1
 	if type == bunniesTypes.Fast:
 		collectibleFast += 1
+	if type == bunniesTypes.Shooter:
+		collectibleShooter += 1
 	emit_signal("updateHud")
 	
 func removeCollectible(type):
@@ -69,4 +72,6 @@ func removeCollectible(type):
 		collectibleStrong -= 1
 	if type == bunniesTypes.Fast:
 		collectibleFast -= 1
+	if type == bunniesTypes.Shooter:
+		collectibleShooter -= 1
 	emit_signal("updateHud")

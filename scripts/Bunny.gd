@@ -15,27 +15,33 @@ func onCreate(new_type, index) :
 	type = new_type
 	positionIndex = index
 	
-	var new_color = Color(0.83,0.83,0.47)
 	if type == GameController.bunniesTypes.Strong :
 		max_life = 4
-		new_color = Color(0.42, 0.65, 0.94)
 		$AnimationPlayer.play("bunny_strong")
 	if type == GameController.bunniesTypes.Fast :
 		velocity = 300
-		new_color = Color(0.98, 0.29, 0.29)
 		$AnimationPlayer.play("bunny_fast")
+	if type == GameController.bunniesTypes.Shooter :
+		$AnimationPlayer.play("bunny_shooter")
 	if type == GameController.bunniesTypes.StrongFast :
 		max_life = 4
 		velocity = 350
-		new_color = Color(0.72, 0.29, 0.98)
 		$AnimationPlayer.play("bunny_strong_fast")
-	
-	$Foot/AnimatedSprite.material.set_shader_param("NEWCOLOR1", new_color)
+	if type == GameController.bunniesTypes.StrongShooter :
+		max_life = 4
+		$AnimationPlayer.play("bunny_strong_shooter")
+	if type == GameController.bunniesTypes.FastShooter :
+		velocity = 350
+		$AnimationPlayer.play("bunny_fast_shooter")
 	life = max_life
 
 func onChangeType(new_type):
 	if (type == GameController.bunniesTypes.Strong && new_type == GameController.bunniesTypes.Fast) || (type == GameController.bunniesTypes.Fast && new_type == GameController.bunniesTypes.Strong):
 		new_type = GameController.bunniesTypes.StrongFast
+	if (type == GameController.bunniesTypes.Strong && new_type == GameController.bunniesTypes.Shooter) || (type == GameController.bunniesTypes.Shooter && new_type == GameController.bunniesTypes.Strong):
+		new_type = GameController.bunniesTypes.StrongShooter
+	if (type == GameController.bunniesTypes.Fast && new_type == GameController.bunniesTypes.Shooter) || (type == GameController.bunniesTypes.Shooter && new_type == GameController.bunniesTypes.Fast):
+		new_type = GameController.bunniesTypes.FastShooter
 	GameController.changeBunny(positionIndex, new_type)
 	onCreate(new_type, positionIndex)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://sprites/level_base_clone_o_matic.png" type="Texture" id=1]
 [ext_resource path="res://sprites/bg_level_base.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://sprites/collectibles/powerup-velocidade_hover.png" type="Texture" id=10]
 [ext_resource path="res://sprites/hud/btns_play_hover.png" type="Texture" id=11]
 [ext_resource path="res://sprites/hud/btns_play.png" type="Texture" id=12]
+[ext_resource path="res://sprites/collectibles/powerup-mente.png" type="Texture" id=13]
+[ext_resource path="res://sprites/collectibles/powerup-mente_hover.png" type="Texture" id=14]
 
 [sub_resource type="Shader" id=9]
 code = "shader_type canvas_item;
@@ -195,34 +197,6 @@ rect_scale = Vector2( 1.5, 1.5 )
 texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 11 )
 
-[node name="CollectibleStrongButton" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -180.0
-margin_top = -148.0
-margin_right = -83.9999
-margin_bottom = -49.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 6 )
-
-[node name="CollectibleFastButton" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -182.0
-margin_top = 86.0
-margin_right = -86.0
-margin_bottom = 182.0
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 10 )
-
 [node name="SpriteBg" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 texture = ExtResource( 2 )
@@ -245,7 +219,7 @@ material = SubResource( 10 )
 position = Vector2( 13, 0 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="CloneOMatic"]
@@ -277,11 +251,54 @@ playing = true
 position = Vector2( 1298, 933 )
 shape = SubResource( 19 )
 
+[node name="CollectibleStrongButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1740.0
+margin_top = 304.0
+margin_right = 1836.0
+margin_bottom = 403.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 6 )
+
+[node name="CollectibleFastButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1738.0
+margin_top = 538.0
+margin_right = 1834.0
+margin_bottom = 634.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+
+[node name="CollectibleShooterButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1738.0
+margin_top = 773.0
+margin_right = 1834.0
+margin_bottom = 869.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
+
 [connection signal="button_down" from="CanvasLayer/ButtonStartWave" to="." method="startWave"]
-[connection signal="button_down" from="CanvasLayer/CollectibleStrongButton" to="." method="_on_CollectibleStrongButton_button_down"]
-[connection signal="button_down" from="CanvasLayer/CollectibleFastButton" to="." method="_on_CollectibleFastButton_button_down"]
 [connection signal="input_event" from="CloneOMatic" to="." method="_on_CloneOMatic_input_event"]
 [connection signal="mouse_entered" from="CloneOMatic" to="." method="_on_CloneOMatic_mouse_entered"]
 [connection signal="mouse_exited" from="CloneOMatic" to="." method="_on_CloneOMatic_mouse_exited"]
 [connection signal="area_entered" from="MolaExitArea" to="." method="_on_MolaExitArea_area_entered"]
 [connection signal="area_entered" from="Mola" to="." method="_on_Mola_area_entered"]
+[connection signal="button_down" from="CollectibleStrongButton" to="." method="_on_CollectibleStrongButton_button_down"]
+[connection signal="button_down" from="CollectibleFastButton" to="." method="_on_CollectibleFastButton_button_down"]
+[connection signal="button_down" from="CollectibleShooterButton" to="." method="_on_CollectibleShooterButton_button_down"]

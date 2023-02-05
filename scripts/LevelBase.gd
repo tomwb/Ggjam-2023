@@ -96,3 +96,11 @@ func _on_CollectibleFastButton_button_down():
 		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
 		collectible_bunny_evolve.type = GameController.bunniesTypes.Fast
 		get_parent().add_child(collectible_bunny_evolve)
+
+
+func _on_CollectibleShooterButton_button_down():
+	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0 && GameController.collectibleShooter > 0:
+		GameController.removeCollectible(GameController.bunniesTypes.Shooter)
+		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
+		collectible_bunny_evolve.type = GameController.bunniesTypes.Shooter
+		get_parent().add_child(collectible_bunny_evolve)

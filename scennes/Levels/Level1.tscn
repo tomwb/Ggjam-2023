@@ -78,7 +78,7 @@ tracks/1/keys = {
 script = ExtResource( 4 )
 
 [node name="BgGrass" type="TextureRect" parent="."]
-margin_right = 1958.0
+margin_right = 5614.0
 margin_bottom = 1104.0
 texture = ExtResource( 6 )
 stretch_mode = 2
@@ -93,7 +93,7 @@ curve = SubResource( 1 )
 position = Vector2( 2879, 39 )
 
 [node name="TowerTomato" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1190, 389 )
+position = Vector2( 4110, 1053 )
 
 [node name="StartPosition2D" type="Position2D" parent="."]
 position = Vector2( 141, 502 )
@@ -126,3 +126,12 @@ position = Vector2( 618, 394 )
 position = Vector2( 870, 483 )
 monitorable = false
 type = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 540
+smoothing_enabled = true
+smoothing_speed = 1.0

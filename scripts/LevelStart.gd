@@ -7,7 +7,19 @@ var bunnies = []
 func _ready():
 	yield($LevelSpawner/AnimationPlayer,"animation_finished")
 	$LevelSpawner/AnimationPlayer.play("open")
-
+	
+func _process(delta):
+	var first_bunny_position
+	for bunny in bunnies:
+		if is_instance_valid(bunny):
+			if !first_bunny_position:
+				first_bunny_position = bunny.global_position
+			if first_bunny_position.x < bunny.global_position.x:
+				first_bunny_position =  bunny.global_position
+	if first_bunny_position:
+		$Camera2D.global_position.x = first_bunny_position.x
+		
+		
 func spawnBunny():
 	if GameController.bunnies.size() > 0 && bunnies.size() < GameController.bunnies.size():
 			var bunny = pre_bunny.instance()
