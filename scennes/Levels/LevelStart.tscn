@@ -68,11 +68,10 @@ custom_constants/margin_left = 60
 custom_constants/margin_bottom = 60
 
 [node name="Menu" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-visible = false
 margin_left = 690.0
-margin_top = 425.0
+margin_top = 355.0
 margin_right = 1230.0
-margin_bottom = 655.0
+margin_bottom = 725.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = 50
@@ -93,6 +92,14 @@ rect_min_size = Vector2( 540, 90 )
 custom_fonts/font = ExtResource( 4 )
 text = "Quit"
 
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MarginContainer/Menu"]
+margin_top = 280.0
+margin_right = 540.0
+margin_bottom = 370.0
+rect_min_size = Vector2( 540, 90 )
+custom_fonts/font = ExtResource( 4 )
+text = "Credits"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 anims/Buttons = SubResource( 1 )
 anims/RESET = SubResource( 2 )
@@ -103,3 +110,4 @@ autoplay = true
 
 [connection signal="button_down" from="CanvasLayer/MarginContainer/Menu/Button" to="." method="changeToGame"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Menu/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Menu/CreditsButton" to="." method="_on_CreditsButton_pressed"]

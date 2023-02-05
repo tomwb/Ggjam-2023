@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://font/Chocolate Bar Demo.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Lore.gd" type="Script" id=2]
 [ext_resource path="res://sprites/hud/fast_foward_hover.png" type="Texture" id=3]
 [ext_resource path="res://sprites/hud/fast_foward.png" type="Texture" id=4]
 [ext_resource path="res://sounds/Creditos-Lore.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sprites/artwork.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -27,7 +28,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "TextScrolling"
-length = 30.0
+length = 20.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Text:rect_position")
 tracks/0/interp = 1
@@ -35,16 +36,23 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 30 ),
+"times": PoolRealArray( 0, 20 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 293, 1091 ), Vector2( 292, 29 ) ]
+"values": [ Vector2( 293, 1050 ), Vector2( 292, 70 ) ]
 }
 
 [node name="Lore" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.101961, 0.101961, 0.101961, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
 
 [node name="Text" type="RichTextLabel" parent="."]
 anchor_left = 0.5
