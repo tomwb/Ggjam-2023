@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Creditos-Lore.ogg-3a3d98c459f3f552a1d5a3b6d04f5d9e.oggstr"
+
+[deps]
+
+source_file="res://sounds/Creditos-Lore.ogg"
+dest_files=[ "res://.import/Creditos-Lore.ogg-3a3d98c459f3f552a1d5a3b6d04f5d9e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

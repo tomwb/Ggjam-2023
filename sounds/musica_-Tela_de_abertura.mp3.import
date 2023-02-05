@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/musica_-Tela_de_abertura.mp3-94a2ff073ca4665ca57135d164874306.mp3str"
+
+[deps]
+
+source_file="res://sounds/musica_-Tela_de_abertura.mp3"
+dest_files=[ "res://.import/musica_-Tela_de_abertura.mp3-94a2ff073ca4665ca57135d164874306.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

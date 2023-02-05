@@ -45,6 +45,7 @@ func onChangeType(new_type):
 	if (type == GameController.bunniesTypes.Fast && new_type == GameController.bunniesTypes.Shooter) || (type == GameController.bunniesTypes.Shooter && new_type == GameController.bunniesTypes.Fast):
 		new_type = GameController.bunniesTypes.FastShooter
 	GameController.changeBunny(positionIndex, new_type)
+	$EvoSound.play()
 	onCreate(new_type, positionIndex)
 
 func _process(delta):
@@ -67,6 +68,7 @@ func explode():
 	queue_free()
 	
 func setDamage(damage):
+	$DamageSound.play()
 	life -= damage
 	$HpBar.calcPercentage(max_life, life)
 	if life <= 0:

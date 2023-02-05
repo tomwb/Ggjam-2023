@@ -40,6 +40,7 @@ func removeBunny(index):
 	bunnies = new_bunnies
 	if bunnies.size() == 0:
 		yield(get_tree().create_timer(1), "timeout")
+		Engine.time_scale = 1.0
 		changeToLevel("res://scennes/levels/LevelBase.tscn")
 
 func changeToLevel(level_name):
@@ -49,10 +50,12 @@ func changeToLevel(level_name):
 	yield(get_tree().create_timer(0.2), "timeout")
 	$AnimationPlayer.play("fade_out")
 
+	
+
 func startLevel():
 	changeToLevel("res://scennes/levels/Level1.tscn")
 	wave += 1
-	emit_signal("updateHud")
+	emit_signal("upda5teHud")
 
 func addCollectible(type):
 	if type == bunniesTypes.Basic:

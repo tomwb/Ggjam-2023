@@ -7,7 +7,7 @@ var bunnies = []
 func _ready():
 	yield($LevelSpawner/AnimationPlayer,"animation_finished")
 	$LevelSpawner/AnimationPlayer.play("open")
-	
+	$LevelSpawner/OpenSound.pitch_scale = 10
 func _process(delta):
 	var first_bunny_position
 	for bunny in bunnies:
@@ -31,3 +31,11 @@ func spawnBunny():
 			yield($LevelSpawner/AnimationPlayer,"animation_finished")
 			if bunnies.size() < GameController.bunnies.size():
 				$LevelSpawner/AnimationPlayer.play("open")
+
+
+func _on_FastFoward_pressed():
+	if Engine.time_scale == 3.0:
+		Engine.time_scale = 1.0
+	else:
+		Engine.time_scale = 3.0
+

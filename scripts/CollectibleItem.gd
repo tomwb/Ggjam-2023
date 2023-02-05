@@ -4,6 +4,7 @@ extends Area2D
 const PRE_TEXTURE_BASIC =  preload("res://sprites/collectibles/pickup-Recovered.png")
 const PRE_TEXTURE_STRONG =  preload("res://sprites/collectibles/pickup-forca.png")
 const PRE_TEXTURE_FAST =  preload("res://sprites/collectibles/pickup-velocidade.png")
+var collected = false
 
 enum  bunniesTypes {
 	Basic, Fast, Strong
@@ -27,6 +28,10 @@ func changeSprites():
 		$Sprite.set_texture(PRE_TEXTURE_FAST)
 
 func _on_CollectibleItem_area_entered(area):
-	if area.is_in_group("BUNNY"):
+	if area.is_in_group("BUNNY") and !collected:
+		collected = true
+		$CollectItemSound.play()
+		visible = false
+		yield($CollectItemSound, "finished")
 		GameController.addCollectible(type)
 		queue_free()

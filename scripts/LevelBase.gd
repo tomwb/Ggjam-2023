@@ -16,6 +16,7 @@ func _ready():
 
 func addBunny():
 	if canAddNew == true && max_bunnies > bunnies.size() && GameController.collectibleCarrot > 0: 
+		$CloneOMatic/CloningSound.play()
 		GameController.removeCollectible(GameController.bunniesTypes.Basic)
 		canAddNew = false
 		if bunnies.size() > 0:
@@ -59,6 +60,8 @@ func _on_CloneOMatic_input_event(viewport, event, shape_idx):
 
 func startWave():
 	if canAddNew == true && bunnies.size() >= 1:
+		$StartWaveButtonSound.play()
+		$CanvasLayer/ButtonStartWave.visible = false
 		canAddNew = false
 		walkBunnies = true
 
@@ -66,6 +69,7 @@ func _on_Mola_area_entered(area):
 	if area.is_in_group("BUNNY"):
 		walkBunnies = false
 		$Mola/AnimatedSprite.play("jump")
+		$Mola/JumpSound.play()
 		yield(get_tree().create_timer(0.2), "timeout")
 		mola_bunny = area.get_parent()
 
@@ -85,6 +89,7 @@ func _on_MolaExitArea_area_entered(area):
 
 func _on_CollectibleStrongButton_button_down():
 	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0 && GameController.collectibleStrong > 0:
+		$CollectibleSound.play()
 		GameController.removeCollectible(GameController.bunniesTypes.Strong)
 		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
 		collectible_bunny_evolve.type = GameController.bunniesTypes.Strong
@@ -92,6 +97,7 @@ func _on_CollectibleStrongButton_button_down():
 
 func _on_CollectibleFastButton_button_down():
 	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0 && GameController.collectibleFast > 0:
+		$CollectibleSound.play()
 		GameController.removeCollectible(GameController.bunniesTypes.Fast)
 		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
 		collectible_bunny_evolve.type = GameController.bunniesTypes.Fast
@@ -100,6 +106,7 @@ func _on_CollectibleFastButton_button_down():
 
 func _on_CollectibleShooterButton_button_down():
 	if canAddNew == true && bunnies.size() >= 1 && get_tree().get_nodes_in_group("COLLECTIBLE_BUNNY_EVOLVE").size() <= 0 && GameController.collectibleShooter > 0:
+		$CollectibleSound.play()
 		GameController.removeCollectible(GameController.bunniesTypes.Shooter)
 		var collectible_bunny_evolve = pre_collectible_bunny_evolve.instance()
 		collectible_bunny_evolve.type = GameController.bunniesTypes.Shooter

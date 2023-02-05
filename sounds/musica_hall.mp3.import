@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/musica_hall.mp3-cc490114fd5ba47e7a93398a93202e17.mp3str"
+
+[deps]
+
+source_file="res://sounds/musica_hall.mp3"
+dest_files=[ "res://.import/musica_hall.mp3-cc490114fd5ba47e7a93398a93202e17.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://sprites/level_spawner.png" type="Texture" id=1]
 [ext_resource path="res://scennes/enemies/TowerTomato.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://sprites/grass.png" type="Texture" id=6]
 [ext_resource path="res://scennes/CollectibleItem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/tiles_estrada.png" type="Texture" id=8]
+[ext_resource path="res://sounds/musicafase.mp3" type="AudioStream" id=9]
+[ext_resource path="res://sprites/hud/fast_foward.png" type="Texture" id=10]
+[ext_resource path="res://sprites/hud/fast_foward_hover.png" type="Texture" id=11]
+[ext_resource path="res://sounds/porta.ogg" type="AudioStream" id=12]
 
 [sub_resource type="TileSet" id=5]
 0/name = "tiles_estrada.png 0"
@@ -50,6 +54,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OpenSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -98,6 +114,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("OpenSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 4 )
@@ -117,6 +145,16 @@ format = 1
 tile_data = PoolIntArray( 65552, 0, 1, 65553, 0, 2, 131074, 0, 131073, 131075, 0, 0, 131076, 0, 0, 131077, 0, 131072, 131082, 0, 1, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 131072, 131088, 0, 65536, 131089, 0, 65536, 196609, 0, 1, 196610, 0, 196609, 196613, 0, 196608, 196614, 0, 131072, 196618, 0, 65536, 196622, 0, 196608, 196623, 0, 0, 196624, 0, 65538, 196625, 0, 65536, 262145, 0, 65536, 262150, 0, 196608, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 65538, 262161, 0, 65537, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 2, 327681, 0, 196611, 327705, 0, 65537, 327706, 0, 0, 327707, 0, 0 )
 
 [node name="Hud" parent="." instance=ExtResource( 3 )]
+
+[node name="HudLevel1" type="CanvasLayer" parent="."]
+
+[node name="FastFoward" type="TextureButton" parent="HudLevel1"]
+margin_left = 1719.0
+margin_top = 40.0
+margin_right = 1879.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 545, 120 )
@@ -145,6 +183,9 @@ autoplay = "idle"
 anims/RESET = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/open = SubResource( 4 )
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="LevelSpawner"]
+stream = ExtResource( 12 )
 
 [node name="Itens" type="Node2D" parent="."]
 
@@ -190,3 +231,9 @@ limit_top = 0
 limit_bottom = 540
 smoothing_enabled = true
 smoothing_speed = 1.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[connection signal="pressed" from="HudLevel1/FastFoward" to="." method="_on_FastFoward_pressed"]

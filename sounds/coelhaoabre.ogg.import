@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/coelhaoabre.ogg-fb1d4ec039b4475b15fe42e6d6548b3c.oggstr"
+
+[deps]
+
+source_file="res://sounds/coelhaoabre.ogg"
+dest_files=[ "res://.import/coelhaoabre.ogg-fb1d4ec039b4475b15fe42e6d6548b3c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

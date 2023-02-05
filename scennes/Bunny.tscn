@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://animations/BunnyNormal.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scennes/HpBar.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://animations/BunnyFast.tres" type="SpriteFrames" id=5]
 [ext_resource path="res://shaders/BunnyShader.tres" type="Material" id=6]
 [ext_resource path="res://animations/BunnyShooter.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://sounds/evolucao.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/dano.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 65.0
@@ -86,30 +88,6 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 0, -149 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Body/AnimatedSprite:material:shader_param/NEWCOLOR1")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.827451, 0.819608, 0.47451, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.278431, 0.482353, 0.788235, 1 ) ]
-}
 
 [sub_resource type="Animation" id=8]
 resource_name = "bunny_fast"
@@ -185,18 +163,6 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -142 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Body/AnimatedSprite:material:shader_param/NEWCOLOR1")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0.6, 0.733333, 1 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -374,18 +340,6 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 0, -112 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Body/AnimatedSprite:material:shader_param/NEWCOLOR1")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=10]
 resource_name = "bunny_shooter"
@@ -550,18 +504,6 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 0, -149 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Body/AnimatedSprite:material:shader_param/NEWCOLOR1")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.494118, 0.984314, 0.52549, 1 ) ]
-}
 
 [sub_resource type="Animation" id=9]
 resource_name = "bunny_strong_fast"
@@ -637,18 +579,6 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -170 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Body/AnimatedSprite:material:shader_param/NEWCOLOR1")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0.960784, 0.623529, 1 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -793,5 +723,11 @@ anims/bunny_shooter = SubResource( 10 )
 anims/bunny_strong = SubResource( 7 )
 anims/bunny_strong_fast = SubResource( 9 )
 anims/bunny_strong_shooter = SubResource( 12 )
+
+[node name="EvoSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
