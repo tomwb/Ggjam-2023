@@ -88,6 +88,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 0, -149 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "bunny_fast"
@@ -163,6 +175,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -142 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.490196, 0.490196, 1 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -241,24 +265,12 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -142 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Body/AnimatedSprite:material:shader_param/NEWCOLOR1")
+tracks/6/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0.6, 0.733333, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -339,6 +351,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -112 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -504,6 +528,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 0, -149 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.556863, 1, 0.490196, 1 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "bunny_strong_fast"
@@ -579,6 +615,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -170 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Foot/AnimatedSprite:material:shader_param/NEWCOLOR1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.964706, 0.490196, 1 ) ]
 }
 
 [sub_resource type="Animation" id=12]
