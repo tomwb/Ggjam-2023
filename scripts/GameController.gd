@@ -45,9 +45,12 @@ func removeBunny(index):
 			new_bunnies.append(bunny)
 	bunnies = new_bunnies
 	if bunnies.size() == 0:
-		yield(get_tree().create_timer(1), "timeout")
-		Engine.time_scale = 1.0
-		changeToLevel("res://scennes/levels/LevelBase.tscn")
+		backToBase()
+
+func backToBase():
+	yield(get_tree().create_timer(1), "timeout")
+	Engine.time_scale = 1.0
+	changeToLevel("res://scennes/levels/LevelBase.tscn")
 
 func changeToLevel(level_name):
 	$AnimationPlayer.play("fade_in")

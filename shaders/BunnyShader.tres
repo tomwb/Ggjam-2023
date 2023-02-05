@@ -41,6 +41,6 @@ shader = SubResource( 26 )
 shader_param/OLDCOLOR1 = Color( 1, 1, 1, 1 )
 shader_param/OLDCOLOR2 = Color( 0, 0, 0, 1 )
 shader_param/OLDCOLOR3 = null
-shader_param/NEWCOLOR1 = Color( 0.501961, 0.682353, 0.956863, 1 )
+shader_param/NEWCOLOR1 = Color( 1, 1, 1, 1 )
 shader_param/NEWCOLOR2 = null
 shader_param/NEWCOLOR3 = null

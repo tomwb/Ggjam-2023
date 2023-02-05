@@ -3,6 +3,7 @@ extends Node2D
 const pre_bunny = preload("res://scennes/Bunny.tscn")
 
 var bunnies = []
+var finish = false
 
 func _ready():
 	yield($LevelSpawner/AnimationPlayer,"animation_finished")
@@ -20,7 +21,11 @@ func _process(delta):
 				first_bunny_position =  bunny.global_position
 	if first_bunny_position:
 		$Camera2D.global_position.x = first_bunny_position.x
-
+		
+		
+	if finish == false && bunnies.size() > 0 && get_tree().get_nodes_in_group("BUNNY").size() <= 0:
+		bunnies = []
+		GameController.backToBase()
 		
 func spawnBunny():
 	if GameController.bunnies.size() > 0 && bunnies.size() < GameController.bunnies.size():
@@ -45,6 +50,8 @@ func _on_FastFoward_pressed():
 func _on_FinishGameBase_area_entered(area):
 	if area.is_in_group("BUNNY"):
 		area.queue_free()
-		yield(get_tree().create_timer(0.5), "timeout")
-		Engine.time_scale = 1.0
-		GameController.changeToLevel("res://scennes/levels/LevelCredits.tscn")
+		if finish == false:
+			finish = true
+			yield(get_tree().create_timer(0.5), "timeout")
+			Engine.time_scale = 1.0
+			GameController.changeToLevel("res://scennes/levels/LevelCredits.tscn")

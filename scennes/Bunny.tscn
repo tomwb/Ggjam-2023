@@ -719,7 +719,7 @@ tracks/6/keys = {
 
 [sub_resource type="CapsuleShape2D" id=13]
 radius = 444.0
-height = 310.0
+height = 68.0
 
 [node name="Bunny" type="PathFollow2D"]
 z_index = 5
@@ -785,7 +785,7 @@ stream = ExtResource( 9 )
 [node name="BulletSensorArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSensorArea2D"]
-position = Vector2( 611, -113 )
+position = Vector2( 481, -119 )
 rotation = 1.5708
 shape = SubResource( 13 )
 
