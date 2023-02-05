@@ -55,7 +55,7 @@ func changeToLevel(level_name):
 func startLevel():
 	changeToLevel("res://scennes/levels/Level1.tscn")
 	wave += 1
-	emit_signal("upda5teHud")
+	emit_signal("updateHud")
 
 func addCollectible(type):
 	if type == bunniesTypes.Basic:
