@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/LevelSelection.gd" type="Script" id=1]
 [ext_resource path="res://sounds/musica_-Tela_de_abertura.mp3" type="AudioStream" id=2]
 [ext_resource path="res://sprites/artwork.png" type="Texture" id=3]
-[ext_resource path="res://font/font_30_menu.tres" type="DynamicFont" id=4]
+[ext_resource path="res://sprites/hud/btn_options_on.png" type="Texture" id=5]
+[ext_resource path="res://sprites/hud/btn_options_off.png" type="Texture" id=6]
+[ext_resource path="res://font/Chocolate Bar Demo.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "Buttons"
@@ -62,43 +68,77 @@ expand = true
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 300.0
 custom_constants/margin_right = 60
 custom_constants/margin_top = 60
 custom_constants/margin_left = 60
 custom_constants/margin_bottom = 60
 
 [node name="Menu" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-margin_left = 690.0
-margin_top = 355.0
-margin_right = 1230.0
-margin_bottom = 725.0
+margin_left = 677.0
+margin_top = 137.0
+margin_right = 1242.0
+margin_bottom = 642.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = 50
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/Menu"]
-margin_right = 540.0
-margin_bottom = 90.0
+[node name="Button" type="TextureButton" parent="CanvasLayer/MarginContainer/Menu"]
+margin_right = 565.0
+margin_bottom = 135.0
 rect_min_size = Vector2( 270, 90 )
-custom_fonts/font = ExtResource( 4 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/Menu/Button"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -173.5
+margin_top = 23.0
+margin_right = 204.5
+margin_bottom = 111.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 3 )
 text = "Start Game"
 
-[node name="CreditsButton" type="Button" parent="CanvasLayer/MarginContainer/Menu"]
-margin_top = 140.0
-margin_right = 540.0
-margin_bottom = 230.0
+[node name="CreditsButton" type="TextureButton" parent="CanvasLayer/MarginContainer/Menu"]
+margin_top = 185.0
+margin_right = 565.0
+margin_bottom = 320.0
 rect_min_size = Vector2( 540, 90 )
-custom_fonts/font = ExtResource( 4 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/Menu/CreditsButton"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -138.5
+margin_top = 23.0
+margin_right = 239.5
+margin_bottom = 111.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 3 )
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/MarginContainer/Menu"]
-margin_top = 280.0
-margin_right = 540.0
-margin_bottom = 370.0
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer/MarginContainer/Menu"]
+margin_top = 370.0
+margin_right = 565.0
+margin_bottom = 505.0
 rect_min_size = Vector2( 540, 90 )
-custom_fonts/font = ExtResource( 4 )
-text = "Quit"
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/Menu/QuitButton"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -168.5
+margin_top = 23.0
+margin_right = 209.5
+margin_bottom = 111.0
+mouse_filter = 1
+custom_fonts/normal_font = SubResource( 3 )
+text = "Quit Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 anims/Buttons = SubResource( 1 )
