@@ -1,6 +1,8 @@
 extends PathFollow2D
 
-export(int) var velocity = 150
+const pre_explosion = preload("res://scennes/Explosion.tscn")
+
+export(int) var velocity = 200
 export(int) var max_life = 2
 var life
 var walk = false
@@ -19,19 +21,19 @@ func onCreate(new_type, index) :
 		max_life = 4
 		$AnimationPlayer.play("bunny_strong")
 	if type == GameController.bunniesTypes.Fast :
-		velocity = 300
+		velocity = 400
 		$AnimationPlayer.play("bunny_fast")
 	if type == GameController.bunniesTypes.Shooter :
 		$AnimationPlayer.play("bunny_shooter")
 	if type == GameController.bunniesTypes.StrongFast :
 		max_life = 4
-		velocity = 350
+		velocity = 400
 		$AnimationPlayer.play("bunny_strong_fast")
 	if type == GameController.bunniesTypes.StrongShooter :
 		max_life = 4
 		$AnimationPlayer.play("bunny_strong_shooter")
 	if type == GameController.bunniesTypes.FastShooter :
-		velocity = 350
+		velocity = 400
 		$AnimationPlayer.play("bunny_fast_shooter")
 	life = max_life
 
@@ -59,6 +61,9 @@ func _process(delta):
 	
 func explode():
 	walk = false
+	var explosion = pre_explosion.instance()
+	explosion.position = position
+	get_parent().add_child(explosion)
 	queue_free()
 	
 func setDamage(damage):
@@ -66,7 +71,7 @@ func setDamage(damage):
 	$HpBar.calcPercentage(max_life, life)
 	if life <= 0:
 		GameController.removeBunny(positionIndex)
-		queue_free()
+		explode()
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("ENEMY"):
