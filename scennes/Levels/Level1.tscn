@@ -123,10 +123,10 @@ position = Vector2( 545, 120 )
 curve = SubResource( 1 )
 
 [node name="BionicPotato" parent="." instance=ExtResource( 5 )]
-position = Vector2( 4675, 577 )
+position = Vector2( 3278, 427 )
 
 [node name="TowerTomato" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1414, 288 )
+position = Vector2( 1479, 505 )
 
 [node name="TowerTomato2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6122, 301 )

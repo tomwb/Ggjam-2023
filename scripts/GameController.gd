@@ -8,9 +8,9 @@ signal updateHud
 
 var bunnies = []
 var wave = 0
-var collectibleCarrot = 7
-var collectibleStrong = 2
-var collectibleFast = 1
+var collectibleCarrot = 3
+var collectibleStrong = 0
+var collectibleFast = 0
 var collectibleShooter = 0
 
 func _ready():
