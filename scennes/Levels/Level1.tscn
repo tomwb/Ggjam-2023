@@ -164,7 +164,7 @@ curve = SubResource( 1 )
 position = Vector2( 3278, 427 )
 
 [node name="TowerTomato" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1479, 505 )
+position = Vector2( 1456, 496 )
 
 [node name="TowerTomato2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6122, 301 )
