@@ -161,13 +161,16 @@ position = Vector2( 545, 120 )
 curve = SubResource( 1 )
 
 [node name="BionicPotato" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3278, 427 )
+position = Vector2( 2729, 246 )
 
 [node name="TowerTomato" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1456, 496 )
 
 [node name="TowerTomato2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 6122, 301 )
+position = Vector2( 4064, 384 )
+
+[node name="TowerTomato3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4369, 683 )
 
 [node name="StartPosition2D" type="Position2D" parent="."]
 position = Vector2( 239, 1001 )
@@ -193,33 +196,41 @@ stream = ExtResource( 12 )
 position = Vector2( 263, 624 )
 
 [node name="CollectibleItem2" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 673, 407 )
+position = Vector2( 782, 416 )
 
 [node name="CollectibleItem6" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 1632, 718 )
+position = Vector2( 1660, 643 )
 
 [node name="CollectibleItem7" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 1672, 568 )
+position = Vector2( 1703, 421 )
 type = 2
 
 [node name="CollectibleItem8" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 1706, 424 )
+position = Vector2( 3057, 718 )
+type = 1
+
+[node name="CollectibleItem12" parent="Itens" instance=ExtResource( 7 )]
+position = Vector2( 3238, 722 )
+type = 3
 
 [node name="CollectibleItem9" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 1864, 410 )
+position = Vector2( 2814, 707 )
+
+[node name="CollectibleItem11" parent="Itens" instance=ExtResource( 7 )]
+position = Vector2( 1959, 412 )
 
 [node name="CollectibleItem10" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 2042, 413 )
+position = Vector2( 2226, 412 )
 type = 1
 
 [node name="CollectibleItem3" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 366, 521 )
+position = Vector2( 1204, 730 )
 
 [node name="CollectibleItem5" parent="Itens" instance=ExtResource( 7 )]
 position = Vector2( 488, 418 )
 
 [node name="CollectibleItem4" parent="Itens" instance=ExtResource( 7 )]
-position = Vector2( 870, 483 )
+position = Vector2( 985, 579 )
 monitorable = false
 type = 2
 

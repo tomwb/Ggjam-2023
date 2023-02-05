@@ -50,4 +50,4 @@ func _on_SensorArea2D_area_exited(area):
 func _on_Atack_area_entered(area):
 	if area.is_in_group("BUNNY"):
 		if area.get_parent().has_method("setDamage"):
-			area.get_parent().setDamage(2)
+			area.get_parent().setDamage(1)

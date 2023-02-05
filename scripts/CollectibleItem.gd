@@ -4,10 +4,12 @@ extends Area2D
 const PRE_TEXTURE_BASIC =  preload("res://sprites/collectibles/pickup-Recovered.png")
 const PRE_TEXTURE_STRONG =  preload("res://sprites/collectibles/pickup-forca.png")
 const PRE_TEXTURE_FAST =  preload("res://sprites/collectibles/pickup-velocidade.png")
+const PRE_TEXTURE_SHOOTER =  preload("res://sprites/collectibles/pickup-visao.png")
+
 var collected = false
 
 enum  bunniesTypes {
-	Basic, Fast, Strong
+	Basic, Fast, Strong, Shooter
 }
 
 export(bunniesTypes) var type = bunniesTypes.Basic setget set_bunny_type
@@ -26,6 +28,8 @@ func changeSprites():
 		$Sprite.set_texture(PRE_TEXTURE_STRONG)
 	if type == bunniesTypes.Fast:
 		$Sprite.set_texture(PRE_TEXTURE_FAST)
+	if type == bunniesTypes.Shooter:
+		$Sprite.set_texture(PRE_TEXTURE_SHOOTER)
 
 func _on_CollectibleItem_area_entered(area):
 	if area.is_in_group("BUNNY") and !collected:

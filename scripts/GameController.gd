@@ -8,10 +8,10 @@ signal updateHud
 
 var bunnies = []
 var wave = 0
-var collectibleCarrot = 15
-var collectibleStrong = 0
-var collectibleFast = 0
-var collectibleShooter = 5
+var collectibleCarrot = 7
+var collectibleStrong = 2
+var collectibleFast = 2
+var collectibleShooter = 1
 
 func _ready():
 	pass
