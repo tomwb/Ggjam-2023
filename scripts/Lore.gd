@@ -13,4 +13,4 @@ func _ready():
 
 func _on_FastFoward_pressed():
 	Engine.time_scale = 15
-
+	$FastFoward.visible = false
