@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/enemies/potato_fire.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enemies/potato.png" type="Texture" id=2]
 [ext_resource path="res://scripts/BionicPotato.gd" type="Script" id=3]
 [ext_resource path="res://scennes/HpBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/batata_ataque.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -103,6 +104,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false, true, false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Atack/AttackSound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "idle"
@@ -139,8 +152,8 @@ radius = 116.0
 height = 204.0
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 0.01
-height = 0.01
+radius = 62.0
+height = 240.0
 
 [sub_resource type="CircleShape2D" id=9]
 radius = 538.199
@@ -170,12 +183,15 @@ visible = false
 [node name="FireSprite" type="Sprite" parent="Atack"]
 texture = ExtResource( 1 )
 hframes = 6
-frame = 5
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Atack"]
 position = Vector2( 0, 259 )
 rotation = 1.5708
 shape = SubResource( 5 )
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="Atack"]
+stream = ExtResource( 5 )
 
 [node name="SensorArea2D" type="Area2D" parent="."]
 

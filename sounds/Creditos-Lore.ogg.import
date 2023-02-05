@@ -12,4 +12,4 @@ dest_files=[ "res://.import/Creditos-Lore.ogg-3a3d98c459f3f552a1d5a3b6d04f5d9e.o
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=0.0

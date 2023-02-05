@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://font/Chocolate Bar Demo.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/Lore.gd" type="Script" id=2]
+[ext_resource path="res://sprites/hud/fast_foward_hover.png" type="Texture" id=3]
+[ext_resource path="res://sprites/hud/fast_foward.png" type="Texture" id=4]
+[ext_resource path="res://sounds/Creditos-Lore.ogg" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 293, 1091 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "TextScrolling"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 293, 1091 ), Vector2( 292, 29 ) ]
+}
+
+[node name="Lore" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Text" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -667.0
+margin_top = 551.0
+margin_right = 719.0
+margin_bottom = 2012.02
+custom_fonts/normal_font = SubResource( 1 )
+text = "For ages, rabbits dinasty lived in peace and harmony on the moon
+They grew food and prepared the elixir that gives life to Earth's beings
+
+But the peace ended when the Evil Roots of Betelgeuse invaded the moon searching for the famous elixir
+With their terrible tricks, the roots dominated the rabbits' food and turned them into monsters
+
+Now the rabbits must grow and evolve so they can fight and save the moon"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/TextScrolling = SubResource( 3 )
+
+[node name="FastFoward" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -160.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[connection signal="pressed" from="FastFoward" to="." method="_on_FastFoward_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/batata_ataque.mp3-2f4ae158a34a9cc86a24eb4872e06a0e.mp3str"
+
+[deps]
+
+source_file="res://sounds/batata_ataque.mp3"
+dest_files=[ "res://.import/batata_ataque.mp3-2f4ae158a34a9cc86a24eb4872e06a0e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

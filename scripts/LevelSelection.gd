@@ -5,4 +5,4 @@ func _ready():
 	pass
 
 func changeToGame():
-	GameController.changeToLevel("res://scennes/levels/LevelBase.tscn")
+	GameController.changeToLevel("res://scennes/levels/Lore.tscn")
